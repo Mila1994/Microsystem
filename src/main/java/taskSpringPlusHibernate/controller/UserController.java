@@ -43,27 +43,19 @@ public class UserController {
     public String showEditForm(@PathVariable Long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "edit"; // Представление для формы редактирования
+        return "edit";
     }
 
-    @PostMapping("/edit")
-    public String editUser(@ModelAttribute User user, Model model) {
+    @PatchMapping("/{id}")
+    public String editUser(@ModelAttribute User user, @PathVariable Long id) {
+        user.setId(id);
         userService.updateUser(user);
         return "redirect:/users";
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.removeUserById(id);
         return "redirect:/users";
     }
-
-    @GetMapping("/confirm-delete/{id}")
-    public String confirmDeleteUser(@PathVariable Long id, Model model) {
-        User user = userService.getUserById(id);
-        model.addAttribute("user", user);
-        return "confirm-delete";
-    }
-
-
 }
