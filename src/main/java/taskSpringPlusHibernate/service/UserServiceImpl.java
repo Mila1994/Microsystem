@@ -1,49 +1,41 @@
 package taskSpringPlusHibernate.service;
 
 import org.springframework.stereotype.Service;
-import taskSpringPlusHibernate.dao.UserDao;
 import taskSpringPlusHibernate.model.User;
+import taskSpringPlusHibernate.repository.UserRepository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
-
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
 
-    private final UserDao userDao;
-
-
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
-    @Override
-    public void saveUser(User user) {
-        userDao.saveUser(user);
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+        return userRepository.findAll();
     }
 
     @Override
-    public User getUserById(long id) {
-        return userDao.getUserById(id);
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
+    @Override
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 
     @Override
     public void updateUser(User user) {
-        userDao.updateUser(user);
+        userRepository.save(user); // save() работает и для обновления
     }
 
     @Override
-    public void removeUserById(long id) {
-        userDao.removeUserById(id);
+    public void removeUserById(Long id) {
+        userRepository.deleteById(id);
     }
-
-
 }

@@ -1,6 +1,5 @@
 package taskSpringPlusHibernate.model;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -14,24 +13,14 @@ public class User {
     @Column(name = "name")
     private String name;
 
-
     @Column(name = "email")
     private String email;
 
     public User() {
     }
 
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
-
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -48,6 +37,15 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
