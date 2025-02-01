@@ -1,9 +1,9 @@
-package microservicetask_7.repository;
+package microservicetask.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import microservicetask_7.model.User;
+import microservicetask.model.User;
 
 import java.util.List;
 

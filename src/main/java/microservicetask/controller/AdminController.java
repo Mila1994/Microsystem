@@ -1,13 +1,13 @@
-package microservicetask_7.controller;
+package microservicetask.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import microservicetask_7.model.Role;
-import microservicetask_7.model.User;
-import microservicetask_7.service.RoleServiceImpl;
-import microservicetask_7.service.UserServiceImpl;
+import microservicetask.model.Role;
+import microservicetask.model.User;
+import microservicetask.service.RoleServiceImpl;
+import microservicetask.service.UserServiceImpl;
 
 import java.util.List;
 
@@ -65,7 +65,7 @@ public class AdminController {
     }
 
     @PatchMapping("/{id}")
-    public String master(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
         userService.updateUser(id, user);
         return "redirect:/admin/users";
     }

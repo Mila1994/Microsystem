@@ -1,11 +1,11 @@
-package microservicetask_7.controller;
+package microservicetask.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import microservicetask_7.model.User;
+import microservicetask.model.User;
 
 @Controller
 public class UserController {

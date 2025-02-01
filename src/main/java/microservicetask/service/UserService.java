@@ -1,6 +1,6 @@
-package microservicetask_7.service;
+package microservicetask.service;
 
-import microservicetask_7.model.User;
+import microservicetask.model.User;
 
 import java.util.List;
 
@@ -13,5 +13,7 @@ public interface UserService {
     void deleteUser(int id);
 
     List<User> getUsersAndRoles();
+
+    User getUserById(int id);
 }
 

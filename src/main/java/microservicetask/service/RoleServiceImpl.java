@@ -1,10 +1,10 @@
-package microservicetask_7.service;
+package microservicetask.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import microservicetask_7.model.Role;
-import microservicetask_7.repository.RoleRepository;
+import microservicetask.model.Role;
+import microservicetask.repository.RoleRepository;
 
 import java.util.List;
 
@@ -22,5 +22,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<Role> findAllRoles() {
         return roleRepository.findAll();
+    }
+
+    @Override
+    public Role findRoleByName(String roleName) {
+        return roleRepository.findByName(roleName);
     }
 }

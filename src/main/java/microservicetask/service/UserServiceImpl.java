@@ -1,10 +1,10 @@
-package microservicetask_7.service;
+package microservicetask.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import microservicetask_7.model.User;
-import microservicetask_7.repository.UserRepository;
+import microservicetask.model.User;
+import microservicetask.repository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -49,5 +49,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUsersAndRoles() {
         return userRepository.listUsersAndRoles();
+    }
+
+    @Override
+    public User getUserById(int id) {
+        return userRepository.save(userRepository.findById(id).get());
     }
 }

@@ -1,6 +1,8 @@
-package microservicetask_7.model;
+package microservicetask.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +14,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class User implements UserDetails {
 
     @Id
@@ -90,6 +95,7 @@ public class User implements UserDetails {
         this.password = passwordEncoder.encode(password);
     }
 
+    //    @JsonManagedReference
     public Set<Role> getRoles() {
         return roles;
     }

@@ -1,14 +1,14 @@
-package microservicetask_7;
+package microservicetask;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import microservicetask_7.model.Role;
-import microservicetask_7.model.User;
-import microservicetask_7.repository.RoleRepository;
-import microservicetask_7.repository.UserRepository;
+import microservicetask.model.Role;
+import microservicetask.model.User;
+import microservicetask.repository.RoleRepository;
+import microservicetask.repository.UserRepository;
 
 import java.util.Set;
 

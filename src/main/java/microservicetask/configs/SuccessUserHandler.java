@@ -1,4 +1,4 @@
-package microservicetask_7.configs;
+package microservicetask.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
